@@ -1,0 +1,23 @@
+# Simple deployment used to deploy and manage the app in nigelpoulton/getting-started-k8s:1.0
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deploy
+  labels:
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec: 
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: test-pod
+        image: ryandodson/k8sdemo:1.0 #need to understand where this name is coming from. local folder/github/local repo?
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
