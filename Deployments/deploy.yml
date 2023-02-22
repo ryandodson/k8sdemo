@@ -17,7 +17,7 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
       - name: test-pod
-        image: ryandodson/k8sdemo:1.0 #need to understand where this name is coming from. local folder/github/local repo?
+        image: ryandodson/k8sdemo:1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
